@@ -1,0 +1,32 @@
+﻿@model MvcProject.Models.Picture
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Pictures", FormMethod.Post, 
+                            new { enctype = "multipart/form-data" }))
+{ 
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>Picture</legend>
+
+    <div class="editor-label">
+        Upload Image
+    </div>
+    <div class="editor-field">
+        <input type="file" id="image" name="image" />
+    </div>
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+</fieldset>
+<p>@Html.ActionLink("Go Back", "Index", "Pictures")</p>
+}
+
+

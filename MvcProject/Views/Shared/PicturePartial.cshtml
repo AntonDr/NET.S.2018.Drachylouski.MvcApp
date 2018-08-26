@@ -1,0 +1,20 @@
+﻿<div>
+    <ul id="gallery">
+        @foreach (var picture in Model)
+        {
+            <li>
+                @{
+                    var base64 = Convert.ToBase64String(picture.Content);
+                    var imgsrc = string.Format("data:image/gif;base64,{0}",base64);
+                }
+                <img src='@imgsrc'/>
+            </li>
+        }
+    </ul>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#gallery').bxSlider();
+        $('.bx-wrapper').width('70%');
+    });
+</script>
